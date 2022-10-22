@@ -1,0 +1,45 @@
+.navlink {
+    background-color: antiquewhite;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.navlinkul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    margin-left: auto;
+    margin-top: 10px;
+    padding-right: 10px;
+    justify-content: right;
+    text-align: center;
+
+}
+
+.navlinkul a {
+    text-transform: uppercase;
+    width: 80px;
+    margin: 5px;
+    padding: 5px 10px;
+    line-height: 40px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
+    font-weight: 500;
+    font-size: large;
+    text-decoration: none;
+    color: rgb(87, 82, 74);
+}
+
+.navlinkul a {
+    text-decoration: none;
+}
+
+.navlinkul :hover {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    color: crimson;
+}
