@@ -1,0 +1,21 @@
+.services {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.allservice:hover {
+    cursor: pointer;
+    color: rgb(196, 163, 120);
+}
+
+@media (max-width:588px) {
+    .services {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width:382px) {
+    .services {
+        grid-template-columns: auto;
+    }
+}
