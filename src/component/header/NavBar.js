@@ -12,7 +12,7 @@ const NavBar = props => {
     let nav = null;
     if (props.LoggedIn) {
         nav = <>
-            <Link to="#">HISTORY</Link>
+            <Link to="/history">HISTORY</Link>
             <Link to="/logout">LOGOUT</Link>
         </>
     } else {

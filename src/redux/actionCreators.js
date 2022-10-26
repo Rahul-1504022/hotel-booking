@@ -1,7 +1,7 @@
 import * as actionTypes from "./actionTypes";
+import axios from "axios";
 
 export const selectRoom = (room) => {
-    localStorage.setItem("SelectedRoom", JSON.stringify(room));
     return {
         type: actionTypes.SELECT_ROOM,
         payload: room,
@@ -15,10 +15,9 @@ export const addService = (service) => {
     }
 }
 
-export const userSubmit = user => {
+export const refreshAll = () => {
     return {
-        type: actionTypes.USER_FORM_SUBMIT,
-        payload: user,
+        type: actionTypes.REFRESH_ALL,
     }
 }
 
@@ -27,4 +26,42 @@ export const removeService = (service) => {
         type: actionTypes.REMOVE_SERVICE,
         payload: service,
     }
+}
+
+export const submitSuccess = () => {
+    return {
+        type: actionTypes.SUBMIT_SUCCESS,
+    }
+}
+
+export const finalSubmit = (data, token) => dispatch => {
+    axios.post("https://hotel-booking-461f5-default-rtdb.asia-southeast1.firebasedatabase.app/hotel.json?auth=" + token, data)
+        .then(response => {
+            console.log(response);
+            if (response.status === 200) {
+                dispatch(submitSuccess());
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+
+export const loadUserHistory = (history) => {
+    return {
+        type: actionTypes.LOAD_USER_HISTORY,
+        payload: history,
+    }
+}
+
+
+export const userHistory = (token, userId) => dispatch => {
+    const queryParams = '&orderBy="userId"&equalTo="' + userId + '"';
+    axios.get("https://hotel-booking-461f5-default-rtdb.asia-southeast1.firebasedatabase.app/hotel.json?auth=" + token + queryParams)
+        .then(response => {
+            dispatch(loadUserHistory(response.data));
+        })
+        .catch(error => {
+            console.log(error);
+        })
 }

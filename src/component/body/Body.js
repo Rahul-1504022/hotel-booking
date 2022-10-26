@@ -6,6 +6,7 @@ import Checkout from "./checkout/Checkout";
 import { connect } from "react-redux";
 import Auth from "../Auth/Auth";
 import Logout from "../Auth/Logout";
+import History from "./history/History";
 
 const mapStateToProps = state => {
     return {
@@ -22,6 +23,7 @@ const Body = props => {
             <Route path="/" element={<Home />} />
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/summary" element={<Summary />} />
+            <Route path="/history" element={<History />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/logout" element={<Logout />} />
         </Routes>

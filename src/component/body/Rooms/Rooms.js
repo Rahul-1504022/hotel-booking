@@ -12,6 +12,7 @@ const mapStateToProps = state => {
     return {
         Services: state.Services,
         Rooms: state.Rooms,
+        LoggedIn: state.LoggedIn,
     }
 }
 
@@ -55,6 +56,7 @@ const Rooms = props => {
                 key={room.roomId}
                 room={room}
                 selectedRooms={() => selectedRooms(room)}
+                LoggedIn={props.LoggedIn}
             />
         )
     })
@@ -68,8 +70,8 @@ const Rooms = props => {
                     {roomServices ? roomServices : <p>Null</p>}
                 </ModalBody>
                 <ModalFooter>
-                    <Button><Link to="/summary" style={{ textDecoration: "none", color: "white", fontWeight: "500" }}>Summary</Link></Button>
                     <button className="btn btn-danger" onClick={toggleModal}><Link to="/" style={{ textDecoration: "none", color: "white", fontWeight: "500" }}>Clear All and go to Home Page</Link></button>
+                    <Button><Link to="/summary" style={{ textDecoration: "none", color: "white", fontWeight: "500" }}>Summary</Link></Button>
                 </ModalFooter>
             </Modal>
         </div>

@@ -45,9 +45,6 @@ const Summary = props => {
                         </CardTitle>
                     </CardBody>
                 </Card>
-
-
-
             </div>
         </div>
     )

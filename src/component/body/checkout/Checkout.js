@@ -1,18 +1,23 @@
 import { Formik } from "formik";
-import { userSubmit } from "../../../redux/actionCreators";
+import { finalSubmit } from "../../../redux/actionCreators";
 import { connect } from "react-redux";
 import { Modal, ModalBody, ModalFooter } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const mapDispatchToProps = dispatch => {
     return {
-        userSubmit: (user) => dispatch(userSubmit(user)),
+        finalSubmit: (user, token) => dispatch(finalSubmit(user, token)),
     }
 }
 
 const mapStateToProps = state => {
     return {
         SuccessMsg: state.SuccessMsg,
+        userId: state.userId,
+        SelectedRoom: state.SelectedRoom,
+        Price: state.Price,
+        AddServices: state.AddServices,
+        token: state.token,
     }
 }
 
@@ -28,7 +33,15 @@ const Checkout = props => {
                 }}
                 onSubmit={
                     (values) => {
-                        props.userSubmit(values);
+                        const userDetails = {
+                            userId: props.userId,
+                            SelectedRoom: props.SelectedRoom,
+                            Price: props.Price,
+                            AddServices: props.AddServices,
+                            User: values,
+
+                        }
+                        props.finalSubmit(userDetails, props.token);
                     }
                 }
 

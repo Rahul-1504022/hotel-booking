@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./RoomsCard.css";
 
 const RoomsCard = props => {
@@ -15,8 +16,13 @@ const RoomsCard = props => {
 
             </div>
             <div>
-                <p>Price : {props.room.price}</p>
-                <button className="btn btn-danger" onClick={props.selectedRooms}>Book Room</button>
+                <p style={{ color: "#921839", fontWeight: "bold", textAlign: "center", marginTop: "30px" }}>Price : {props.room.price}</p>
+                {props.LoggedIn ?
+                    <button className="btn btn-danger" onClick={props.selectedRooms}>Book Room</button>
+                    :
+                    <button className="btn btn-info"><Link to="/login" style={{ color: "black", fontWeight: "bold", textDecoration: "none" }}>Login To Book</Link></button>
+
+                }
             </div>
 
         </div>

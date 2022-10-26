@@ -1,6 +1,8 @@
 import * as actionTypes from "./actionTypes";
 import Services from "../data/Services";
 import Rooms from "../data/Rooms";
+import axios from "axios";
+
 const INITIAL_STATE = {
     Services: Services,
     Rooms: Rooms,
@@ -12,6 +14,7 @@ const INITIAL_STATE = {
     LoggedIn: localStorage.getItem("token") ? true : false,
     token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
     userId: localStorage.getItem("userId") ? localStorage.getItem("userId") : null,
+    userHistory: [],
 }
 
 export const Reducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +27,7 @@ export const Reducer = (state = INITIAL_STATE, action) => {
             }
 
         case actionTypes.ADD_SERVICE:
+            console.log(action.payload);
             return {
                 ...state,
                 Price: state.Price + action.payload.price,
@@ -31,19 +35,24 @@ export const Reducer = (state = INITIAL_STATE, action) => {
             }
 
         case actionTypes.REMOVE_SERVICE:
-            const newServiceList = state.AddServices.filter((item, index) => {
+            const newServiceList = state.AddServices.filter((item) => {
                 return item.name !== action.payload.name;
             })
             return {
                 ...state,
+                Price: state.Price - action.payload.price,
                 AddServices: newServiceList,
             }
 
-        case actionTypes.USER_FORM_SUBMIT:
+
+        case actionTypes.SUBMIT_SUCCESS:
             return {
                 ...state,
-                User: action.payload,
-                SuccessMsg: "Successfully Submitted",
+                SelectedRoom: {},
+                Price: 0,
+                AddServices: [],
+                User: {},
+                SuccessMsg: "Successfully Submitted!!!",
             }
 
         case actionTypes.AUTH_SUCCESS:
@@ -63,6 +72,29 @@ export const Reducer = (state = INITIAL_STATE, action) => {
                 User: {},
                 SuccessMsg: "",
             };
+
+        case actionTypes.REFRESH_ALL:
+            return {
+                ...state,
+                SelectedRoom: {},
+                Price: 0,
+                AddServices: [],
+                User: {},
+                SuccessMsg: "",
+            }
+
+        case actionTypes.LOAD_USER_HISTORY:
+            const history = [];
+            for (let key in action.payload) {
+                history.push({
+                    ...action.payload[key],
+                    id: key,
+                })
+            }
+            return {
+                ...state,
+                userHistory: history,
+            }
 
         default:
             return state;

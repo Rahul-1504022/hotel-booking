@@ -4,8 +4,9 @@
 }
 
 .allservice:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
     cursor: pointer;
-    color: rgb(196, 163, 120);
+    color: rgb(138, 30, 125);
 }
 
 @media (max-width:588px) {
