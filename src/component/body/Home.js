@@ -22,6 +22,7 @@ class Home extends Component {
         this.props.refreshAll();
     }
     render() {
+        document.title = "Home Page";
         return (
             <>
                 <div className="home-img">

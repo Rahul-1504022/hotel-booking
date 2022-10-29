@@ -23,7 +23,7 @@ const mapStateToProps = state => {
 }
 
 const Checkout = props => {
-
+    document.title = "Checkout";
     let form = null;
     {
         form = (

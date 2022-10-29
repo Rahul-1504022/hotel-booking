@@ -23,7 +23,7 @@ const Summary = props => {
                 service={item} />
         )
     })
-
+    document.title = "Summary";
 
     return (
         <div style={{ display: "flex", flex: "1", flexWrap: "wrap", gap: "30px", margin: "40px 20px" }}>

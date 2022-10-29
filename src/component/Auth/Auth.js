@@ -35,6 +35,7 @@ class Auth extends Component {
     }
 
     render() {
+        document.title = "Authentication";
         let err = null;
         let form = null;
         {

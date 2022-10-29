@@ -36,6 +36,7 @@ class History extends Component {
 
             )
         }
+        document.title = "History";
         return (
             <div>
                 {userHistory ? userHistory : <p>No Booking history yet!!</p>}

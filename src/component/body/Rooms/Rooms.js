@@ -74,7 +74,7 @@ const Rooms = props => {
             />
         )
     })
-
+    document.title = "All Rooms";
     return (
         <div>
             {roomsCard}
