@@ -4,7 +4,7 @@ import "./RoomsCard.css";
 const RoomsCard = props => {
     return (
         <div className="roomCard">
-            <img src={props.room.imagePath} alt="image" width="30%" />
+            <img src={props.room.imagePath} alt="image" width="100%" />
             <div>
                 <p>{props.room.roomName}</p>
                 <p>Room Size : {props.room.roomSize}</p>
@@ -17,8 +17,10 @@ const RoomsCard = props => {
             </div>
             <div>
                 <p style={{ color: "#921839", fontWeight: "bold", textAlign: "center", marginTop: "30px" }}>Price : {props.room.price}</p>
-                {props.LoggedIn ?
-                    <button className="btn btn-danger" onClick={props.selectedRooms}>Book Room</button>
+                {props.LoggedIn ? props.room.availableRoom !== 0 ?
+                    <><button className="btn btn-success" onClick={props.selectedRooms} >Book Room</button>
+                        <br /><br /><p>Available Rooms : <b>{props.room.availableRoom}</b></p></>
+                    : <button className="btn btn-danger" disabled={true}>All Booked</button>
                     :
                     <button className="btn btn-info"><Link to="/login" style={{ color: "black", fontWeight: "bold", textDecoration: "none" }}>Login To Book</Link></button>
 

@@ -8,6 +8,13 @@ export const selectRoom = (room) => {
     }
 }
 
+export const loadRooms = (data) => {
+    return {
+        type: actionTypes.LOAD_ALL_ROOMS,
+        payload: data,
+    }
+}
+
 export const addService = (service) => {
     return {
         type: actionTypes.ADD_SERVICE,
@@ -34,16 +41,32 @@ export const submitSuccess = () => {
     }
 }
 
-export const finalSubmit = (data, token) => dispatch => {
+export const submitFailed = (message) => {
+    return {
+        type: actionTypes.SUBMIT_FAILED,
+        payload: message,
+    }
+}
+
+export const finalSubmit = (data, Rooms, token) => dispatch => {
+    const updatedRooms = Rooms.map(item => {
+        if (item.roomId === data.SelectedRoom.roomId) {
+            item.availableRoom = item.availableRoom - 1;
+        }
+        return item;
+    })
     axios.post("https://hotel-booking-461f5-default-rtdb.asia-southeast1.firebasedatabase.app/hotel.json?auth=" + token, data)
         .then(response => {
-            console.log(response);
             if (response.status === 200) {
                 dispatch(submitSuccess());
+                axios.put("https://hotel-booking-461f5-default-rtdb.asia-southeast1.firebasedatabase.app/Rooms.json?auth=" + token, updatedRooms)
+                    .then(response => { })
+                    .catch(error => { })
             }
         })
         .catch(error => {
-            console.log(error);
+            console.log(error.message);
+            dispatch(submitFailed(error.message));
         })
 }
 

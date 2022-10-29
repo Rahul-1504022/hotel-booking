@@ -1,11 +1,10 @@
 import * as actionTypes from "./actionTypes";
 import Services from "../data/Services";
-import Rooms from "../data/Rooms";
-import axios from "axios";
+// import Rooms from "../data/Rooms";
 
 const INITIAL_STATE = {
     Services: Services,
-    Rooms: Rooms,
+    Rooms: [],
     SelectedRoom: {},
     Price: 0,
     AddServices: [],
@@ -26,8 +25,19 @@ export const Reducer = (state = INITIAL_STATE, action) => {
                 Price: state.Price + action.payload.price,
             }
 
+        case actionTypes.LOAD_ALL_ROOMS:
+            // const loadRooms = [];
+            // for (let key in action.payload) {
+            //     loadRooms.push(
+            //         ...action.payload[key],
+            //     )
+            // }
+            return {
+                ...state,
+                Rooms: action.payload,
+            }
+
         case actionTypes.ADD_SERVICE:
-            console.log(action.payload);
             return {
                 ...state,
                 Price: state.Price + action.payload.price,
@@ -54,6 +64,19 @@ export const Reducer = (state = INITIAL_STATE, action) => {
                 User: {},
                 SuccessMsg: "Successfully Submitted!!!",
             }
+
+
+        case actionTypes.SUBMIT_FAILED:
+            console.log(action.payload)
+            return {
+                ...state,
+                SelectedRoom: {},
+                Price: 0,
+                AddServices: [],
+                User: {},
+                SuccessMsg: action.payload,
+            }
+
 
         case actionTypes.AUTH_SUCCESS:
             return {

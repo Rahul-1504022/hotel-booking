@@ -6,3 +6,5 @@ export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const SUBMIT_SUCCESS = "SUBMIT_SUCCESS";
 export const REFRESH_ALL = "REFRESH_ALL";
 export const LOAD_USER_HISTORY = "LOAD_USER_HISTORY";
+export const LOAD_ALL_ROOMS = "LOAD_ALL_ROOMS";
+export const SUBMIT_FAILED = "SUBMIT_FAILED";

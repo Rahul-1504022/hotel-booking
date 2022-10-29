@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
 const Main = props => {
     useEffect(() => {
         props.authCheck();
-    })
+    }, [])
     return (
         <div>
             <Head />

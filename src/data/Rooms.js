@@ -1,4 +1,4 @@
-import { shallowEqual } from "react-redux";
+
 
 const Rooms = [
     {
@@ -7,10 +7,72 @@ const Rooms = [
         roomName: "DELUX DOUBLE",
         roomSize: "1800 sq.ft",
         roomDetails: "Attractively ornamented with complete marble & tiles and luxurious fabrics",
-        beds: 1,
+        beds: 2,
         maxGuest: 4,
         price: 30000,
-    }
+        totalRoom: 24,
+        availableRoom: 24,
+    },
+    {
+        roomId: 2,
+        imagePath: "assets/images/single-room.jpg",
+        roomName: "SINGLE DELUX",
+        roomSize: "1000 sq.ft",
+        roomDetails: "These rooms are equipped with bathrooms with rain shower and Rituals products are offered.The toilets are separated.",
+        beds: 1,
+        maxGuest: 2,
+        price: 15000,
+        totalRoom: 30,
+        availableRoom: 30,
+    },
+    {
+        roomId: 3,
+        imagePath: "assets/images/vip-room.jpg",
+        roomName: "VIP ZONE",
+        roomSize: "2500 sq.ft",
+        roomDetails: "Every room has a flat-screen TV. Each room has a private bathroom equipped with a shower. Certain units have a seating area for your convenience. Enjoy a cup of tea while looking out at the garden or city. For your comfort, you will find free toiletries and a hairdryer.",
+        beds: 2,
+        maxGuest: 5,
+        price: 40000,
+        totalRoom: 15,
+        availableRoom: 15,
+    },
+    {
+        roomId: 4,
+        imagePath: "assets/images/presidential-room.jpg",
+        roomName: "PRESIDENTIAL CABIN",
+        roomSize: "3000 sq.ft",
+        roomDetails: "Every room has a flat-screen TV. Each room has a private bathroom equipped with a shower. Certain units have a seating area for your convenience. Enjoy a cup of tea while looking out at the garden or city. For your comfort, you will find free toiletries and a hairdryer.",
+        beds: 2,
+        maxGuest: 4,
+        price: 50000,
+        totalRoom: 6,
+        availableRoom: 6,
+    },
+    {
+        roomId: 5,
+        imagePath: "assets/images/royal-suite-room.jpg",
+        roomName: "ROYAL SUITE",
+        roomSize: "4000 sq.ft",
+        roomDetails: "The epitome of luxury, our Royal Suite presents stunning views of the Four Seasons Hampshire parkland from its own terrace the perfect location for intimate cocktail receptions and private dinner parties. An elegant sitting room, dining area as well as two generously proportioned bedrooms ensures the suite lives up to its name and delivers the ultimate in traditional country living.",
+        beds: 3,
+        maxGuest: 6,
+        price: 70000,
+        totalRoom: 12,
+        availableRoom: 12,
+    },
+    {
+        roomId: 6,
+        imagePath: "assets/images/villa.jpg",
+        roomName: "OUTSIDE VILLA",
+        roomSize: "2800 sq.ft",
+        roomDetails: "Attractively ornamented with complete marble & tiles and luxurious fabrics",
+        beds: 2,
+        maxGuest: 4,
+        price: 55000,
+        totalRoom: 10,
+        availableRoom: 10,
+    },
 
 ]
 

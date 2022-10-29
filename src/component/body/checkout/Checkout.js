@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 
 const mapDispatchToProps = dispatch => {
     return {
-        finalSubmit: (user, token) => dispatch(finalSubmit(user, token)),
+        finalSubmit: (user, Rooms, token) => dispatch(finalSubmit(user, Rooms, token)),
     }
 }
 
 const mapStateToProps = state => {
     return {
+        Rooms: state.Rooms,
         SuccessMsg: state.SuccessMsg,
         userId: state.userId,
         SelectedRoom: state.SelectedRoom,
@@ -41,7 +42,7 @@ const Checkout = props => {
                             User: values,
 
                         }
-                        props.finalSubmit(userDetails, props.token);
+                        props.finalSubmit(userDetails, props.Rooms, props.token);
                     }
                 }
 
